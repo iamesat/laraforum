@@ -1,6 +1,6 @@
 @extends('layouts.font')
 
-@section('content')
+@section('banner')
 
     <div class="jumbotron">
         <div class="container">
@@ -11,5 +11,13 @@
             </p>
         </div>
     </div>
+
+
+@endsection
+@section('heading',"Threads")
+
+@section('content')
+
+    @include('thread.partials.thread-list')
 
 @endsection
