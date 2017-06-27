@@ -55,7 +55,7 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-        //
+        return view('thread.single',compact('thread'));
     }
 
     /**
@@ -66,7 +66,7 @@ class ThreadController extends Controller
      */
     public function edit(Thread $thread)
     {
-        //
+        return view('thread.edit',compact('thread'));
     }
 
     /**
@@ -78,7 +78,15 @@ class ThreadController extends Controller
      */
     public function update(Request $request, Thread $thread)
     {
-        //
+        $this->validate($request,[
+            'subject'=>'required|min:10',
+            'type'=>'required',
+            'thread'=>'required|min:20'
+        ]);
+
+        $thread->update($request->all());
+
+        return redirect()->route('thread.show',$thread->id->withMessage('Geupdate!'));
     }
 
     /**
