@@ -86,7 +86,7 @@ class ThreadController extends Controller
 
         $thread->update($request->all());
 
-        return redirect()->route('thread.show',$thread->id->withMessage('Geupdate!'));
+        return redirect()->route('thread.show',$thread->id)->withMessage('Geupdate!');
     }
 
     /**
