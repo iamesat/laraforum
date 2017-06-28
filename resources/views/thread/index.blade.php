@@ -1,8 +1,14 @@
 @extends('layouts.font')
 
+@section('heading')
+
+    <a class="btn btn-primary" href="{{route('thread.create')}}">Nieuw Topic</a><br>
+
+    @endsection
+
 @section('content')
 
-    <h2>Onderwerpen</h2>
+
 
 
 @include('thread.partials.thread-list')
