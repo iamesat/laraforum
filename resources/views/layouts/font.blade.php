@@ -16,7 +16,9 @@
 
 
     <div class="row">
+        @section('category')
         @include('layouts.partials.categories')
+        @show
 
         <div class="col-md-9">
             <div class="row content-heading">@yield('heading')</div>

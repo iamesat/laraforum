@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label for="subject">Thread</label>
-                <textarea class="form-control" name="thread" id="" placeholder="Uw text" value="{{old('thread')}}"></textarea>
+                <textarea class="form-control" name="thread" id="" placeholder="Uw text">{{old('thread')}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Aanmaken</button>

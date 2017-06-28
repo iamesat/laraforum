@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ThreadController extends Controller
 {
+
+    function __construct()
+    {
+        return $this->middleware('auth')->except('index');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +48,7 @@ class ThreadController extends Controller
             'thread'=>'required|min:20'
         ]);
 
-        Thread::create($request->all());
+        auth()->user()->threads()->create($request->all());
 
         return back()->withMessage('Thread aangemaakt!');
     }
@@ -78,11 +84,17 @@ class ThreadController extends Controller
      */
     public function update(Request $request, Thread $thread)
     {
+
+        if(auth()->user()->id !==$thread->user_id){
+            return back()->withError("KAN NIET UITVOEREN, NIET INGELOGD!");
+        }
+
         $this->validate($request,[
             'subject'=>'required|min:10',
             'type'=>'required',
             'thread'=>'required|min:20'
         ]);
+
 
         $thread->update($request->all());
 

@@ -2,7 +2,7 @@
 
 @section('heading')
 
-    <a class="btn btn-primary" href="{{route('thread.create')}}">Nieuw Topic</a><br>
+    <a class="btn btn-primary pull-right" href="{{route('thread.create')}}">Nieuw Topic</a><br>
 
     @endsection
 
