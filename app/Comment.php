@@ -4,21 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model
+class Comment extends Model
 {
-    protected $guarded=[];
-
-
-
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-
-    public function comments()
+    public function commenttable()
     {
-        return $this->morphMany(Comment::class, 'commenttable');
+        return $this->morphTo();
     }
-
 }

@@ -27,4 +27,27 @@
     </div>
     @endif
 
+    <div class="comment-list">
+        @foreach($thread->comments as $answer)
+
+            <h4>{{$comment->body}}</h4>
+            <lead>{{$comment->user->name}}</lead>
+
+            @endforeach
+    </div>
+    <br><br>
+    <div class="comment-form">
+
+       <form action="{{route('threadcomment.store',$thread->id)}}" method="post" role="form">
+           {{csrf_field()}}
+           <legend>Reageer</legend>
+           <div class="form-group">
+               <input type="text" class="form-controll" name="body" id="" placeholder="Uw reactie">
+           </div>
+
+           <button type="submit" class="btn btn-primary">Reageren</button>
+       </form>
+
+    </div>
+
 @endsection
