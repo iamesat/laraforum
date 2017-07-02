@@ -25,17 +25,6 @@ class CommentController extends Controller
         return back()->withMessage('Gerageerd!');
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
 
     public function update(Request $request, Comment $comment)
     {

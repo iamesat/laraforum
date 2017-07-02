@@ -13,6 +13,7 @@
 
     <br><br>
     <hr>
+
     @if(auth()->user()->id == $thread->user_id)
     <div class="actions">
         <a href="{{route('thread.edit',$thread->id)}}" class="btn btn-info btn-xs">Bewerken</a>
@@ -27,8 +28,8 @@
     </div>
     @endif
 
-    <div class="comment-list">
-        @foreach($thread->comments as $answer)
+    <div class="comment">
+        @foreach($thread->comments as $comment)
 
             <h4>{{$comment->body}}</h4>
             <lead>{{$comment->user->name}}</lead>
